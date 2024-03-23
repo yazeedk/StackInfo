@@ -4,19 +4,19 @@ We Write test cases, and detect the bug and issues,
 and add a issues to the trello as a ticket.
 Then we apply the test cases with cypress.
 
-And we work on the project as : 
-Yazeed : Search bar Functionality.
-Shahd : Filter Functionality.
-Laith : Feedback.
+# And we work on the project as : 
+- Yazeed : Search bar Functionality.
+- Shahd : Filter Functionality.
+- Laith : Feedback.
 
 The test report evaluate the Search bar, Filter and Feedback and check his functionality. 
 We applly different test cases for each feature. 
 - We try for search bar functionality : write one letter, write multi letters, write company name, write company name with small letters,
   and with capital letters, and mix of him.
 
-For Filter, we try to select one topic, then unselect them and select multiple topic then unselect him, and so.
+- For Filter, we try to select one topic, then unselect them and select multiple topic then unselect him, and so.
 
-Lastely for Feedback, we try submit an embty feedback, full submition feedback, incomplete submetion. 
+- Lastely for Feedback, we try submit an embty feedback, full submition feedback, incomplete submetion. 
 and we check both of happy and sad scenarios and we detects some of issues that we writed it on trello
 
 ## Test Cases Link : 
