@@ -27,7 +27,7 @@ describe('Search Bar Functionality', () => {
 
     it('Search with non-existing company', () => {
         cy.get('input[class="search-bar"]').type('Meta');
-        cy.get('.company-name').contains('Al Andalus Software Development').should('not.exist');
+        cy.get('.company-name').should('not.exist');    
     });
 
     it('Search for the company in capital letters', () => {
@@ -57,12 +57,12 @@ describe('Search Bar Functionality', () => {
 
     it('Type numbers on the search bar', () => {
         cy.get('input[class="search-bar"]').type('8');
-        cy.get('.company-name').should('not.exist');
+        cy.get('p.title-not-fround').should('be.visible');
     });
 
     it('Type special characters on the search bar', () => {
         cy.get('input[class="search-bar"]').type('%^');
-        cy.get('.company-name').should('not.exist');
+        cy.get('p.title-not-fround').should('be.visible');
     });
 
     it('Search for a company using the city it is located in', () => {
