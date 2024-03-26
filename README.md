@@ -5,12 +5,12 @@ and add a issues to the trello as a ticket.
 Then we apply the test cases with cypress.
 
 ## The number of test cases executed : 
-- For filter : 10 test cases.
+- For filter : 12 test cases.
 - For /search bar : 19 test cases.
 - For Feedback : 10 test cases.
 
 ## The number of test cases pass : 
-- For filter : 6 Pass test cases.
+- For filter : 8 Pass test cases.
 - For /search bar : 16 Pass test cases.
 - For Feedback : 3 Pass test cases.
 
@@ -20,12 +20,12 @@ Then we apply the test cases with cypress.
 - For Feedback : 7 Fail test cases.
 
 ## Pass percentage : 
-- For filter : 30%.
+- For filter : 67%.
 - For /search bar : 80%.
 - For Feedback : 15%.
 
 ## Fail percentage : 
-- For filter : 70%.
+- For filter : 33%.
 - For /search bar : 20%.
 - For Feedback : 85%.
 
