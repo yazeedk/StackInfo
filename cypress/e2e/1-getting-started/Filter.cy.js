@@ -11,53 +11,76 @@ describe('Filter Functionality', () => {
 
     after(() => {
     });
-
-
+    
     it('Select one topic', () => {
-        cy.get('.PrivateSwitchBase-input').eq(7).check();
+        cy.get('.PrivateSwitchBase-input').eq(5).check();
+        cy.get('.PrivateSwitchBase-input').eq(5).should('be.checked');
+        cy.get('.slider-element.backend').should('contain', 'MySQL');
     });
 
-    it('select tow topic', () => {
-        cy.get('.PrivateSwitchBase-input').eq(7).check();
+    it('Select tow topic', () => {
+        cy.get('.PrivateSwitchBase-input').eq(5).check();
         cy.get('.PrivateSwitchBase-input').eq(6).check();
+        cy.get('.PrivateSwitchBase-input').eq(5).should('be.checked');
+        cy.get('.PrivateSwitchBase-input').eq(6).should('be.checked');
+        cy.get('.slider-element:contains("MySQL")').should('be.visible');
+        cy.get('.slider-element:contains("Mobile")').should('be.visible');
     });
+
 
     it('Select all of topics', () => {
         cy.get('.PrivateSwitchBase-input').check();
+        cy.get('.PrivateSwitchBase-input').each(($checkbox) => {
+            cy.wrap($checkbox).should('be.checked');
+          });
+          cy.get('.slider-element').should('be.visible');
     });
 
     it('Select multiple topics', () => {
-        cy.get('.PrivateSwitchBase-input').eq(7).check();
-        cy.get('.PrivateSwitchBase-input').eq(6).check();
-        cy.get('.PrivateSwitchBase-input').eq(5).check();
-        cy.get('.PrivateSwitchBase-input').eq(4).check();   
-        cy.wait(1000);
+        [7, 6, 5, 4].forEach(index => {
+        cy.get('.PrivateSwitchBase-input').eq(index).check().should('be.checked');
+    });
+    cy.get('.slider-element').should('be.visible');  
     });
 
+    
     it('Unselect a topic after select it', () => {
         cy.get('.PrivateSwitchBase-input').eq(5).check();
-        cy.get('.PrivateSwitchBase-input').eq(5).uncheck();
+        cy.get('.PrivateSwitchBase-input').eq(5).uncheck().should('not.be.checked');
     });
-
+    
     it('Unselect a topic after select a multiple topics', () => {
         cy.get('.PrivateSwitchBase-input').eq(5).check();
         cy.get('.PrivateSwitchBase-input').eq(7).check();
         cy.get('.PrivateSwitchBase-input').eq(5).uncheck();
+        cy.get('.PrivateSwitchBase-input').eq(5).uncheck().should('not.be.checked');
+        cy.get('.PrivateSwitchBase-input').eq(5).check().should('be.checked');
     });
 
-    it('reset filter button after select a topic', () => {
-        cy.get('.PrivateSwitchBase-input').eq(5).check();
-        cy.get('.PrivateSwitchBase-input').eq(7).check();
-        cy.wait(1000);
-        cy.get('.reset-btn').click();
+    it('Select a sub topic', () => {
+        cy.get(':nth-child(7) > .dropdown-title > :nth-child(2) > [data-testid="KeyboardArrowDownIcon"]').click();
+        cy.get('input#Flutter').check();
+        cy.get('.slider-element.mobile').should('be.visible');
     });
-   
+    
+    it('Select multible sub topics', () => {
+        cy.get(':nth-child(7) > .dropdown-title > :nth-child(2) > [data-testid="KeyboardArrowDownIcon"]').click();
+        cy.get('input#Flutter').check();
+        cy.get('input#Xamarin').check();
+        cy.get('.slider-element.mobile').should('be.visible');
+    });
+    
+    
+    it('Reset filter button after select a topic', () => {
+        cy.get(':nth-child(5) > .dropdown-title > :nth-child(2) > [data-testid="KeyboardArrowDownIcon"]').click();
+        cy.get('input.PrivateSwitchBase-input#React[name="frontend"][type="checkbox"]').click();
+    });
+
     it('Hide filter button with select a topic', () => {
         cy.get('.PrivateSwitchBase-input').eq(5).check();
         cy.contains('Hide Filters').click();
         cy.wait(1000);
         cy.get('.filter-button').click();
-       // cy.get('.PrivateSwitchBase-input').eq(5).should('be.checked');
     });
 
     it('Hide filter button with select a sub topic', () => {
@@ -78,6 +101,5 @@ describe('Filter Functionality', () => {
         cy.get('button.clear-all-btn').click();
         cy.contains('Hide Filters').click();
     });
-
-
+    
 });
