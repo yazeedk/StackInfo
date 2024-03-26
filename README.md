@@ -50,3 +50,6 @@ https://docs.google.com/spreadsheets/d/1NHsQ4M-p-XTe_qZ4VNeh6sY_E6UWvfykJV7v6YHs
 
 ## Trello Link : 
 https://trello.com/invite/b/FDlnfBh6/ATTIce039443d3ec3a75748b12ccc08f2f703D997313/stackinfo
+
+## Screen record for Cypress :
+https://youtu.be/YAEx-gNCPAk
